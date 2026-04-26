@@ -164,9 +164,9 @@
 
 ### 8.1 Cron 任务
 建议三条 cron（频率可按成本/效果调优）：
-- `/api/cron/sync-lists`：每 2 分钟同步榜单 id 列表
-- `/api/cron/sync-items`：每 1 分钟补齐/刷新榜单相关 item 详情
-- `/api/cron/translate-pending`：每 1 分钟消费翻译队列
+- `/api/cron/sync-lists`：每 6 小时同步榜单 id 列表
+- `/api/cron/sync-items`：每小时补齐/刷新榜单相关 item 详情
+- `/api/cron/translate-pending`：每小时消费翻译队列
 
 鉴权：
 - 所有 `/api/cron/*` 必须校验 `Authorization: Bearer ${CRON_SECRET}`。
