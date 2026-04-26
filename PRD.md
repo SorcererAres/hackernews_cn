@@ -164,9 +164,12 @@
 
 ### 8.1 Cron 任务
 建议三条 cron（频率可按成本/效果调优）：
-- `/api/cron/sync-lists`：每 6 小时同步榜单 id 列表
-- `/api/cron/sync-items`：每小时补齐/刷新榜单相关 item 详情
-- `/api/cron/translate-pending`：每小时消费翻译队列
+- `/api/cron/sync-lists`：每天一次同步榜单 id 列表（UTC `02:00`）
+- `/api/cron/sync-items`：每天一次补齐/刷新榜单相关 item 详情（UTC `02:05`）
+- `/api/cron/translate-pending`：每天一次消费翻译队列（UTC `02:10`）
+
+说明：
+- Vercel Hobby 计划限制：**每条 cron 每天最多触发一次**；因此这里采用“每天一次 + 错峰几分钟”避免同一分钟并发打满。
 
 鉴权：
 - 所有 `/api/cron/*` 必须校验 `Authorization: Bearer ${CRON_SECRET}`。

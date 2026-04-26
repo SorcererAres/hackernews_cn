@@ -1,8 +1,8 @@
 {
   "crons": [
-    { "path": "/api/cron/sync-lists", "schedule": "0 */6 * * *" },
-    { "path": "/api/cron/sync-items", "schedule": "0 * * * *" },
-    { "path": "/api/cron/translate-pending", "schedule": "0 * * * *" }
+    { "path": "/api/cron/sync-lists", "schedule": "0 2 * * *" },
+    { "path": "/api/cron/sync-items", "schedule": "5 2 * * *" },
+    { "path": "/api/cron/translate-pending", "schedule": "10 2 * * *" }
   ]
 }
 
